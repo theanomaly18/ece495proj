@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @spot.title %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @spot.address %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%= image_tag(@spot.image_url, class: 'list_image') %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @spot.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @spot.longitude %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @spot.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_spot_path(@spot) %> |
+<%= link_to 'Back', spots_path %>
+
+<h2>Comments</h2>
+<!-- Add comments //-->
+<%= form_for [@spot, Comment.new] do |f| %>
+  <p>
+    <%= f.label :body, "New Comment" %><br />
+    <%= f.text_area :body, rows: 6 %>
+  </p>
+  <p><%= f.submit "Add Comment" %></p>
+<% end %>
+<!-- Show comments //-->
+<div id="comments">
+  <% @spot.comments.each do |comment| %>
+    <%= div_for comment do %>
+      <p>
+      <strong>
+        Posted <%= time_ago_in_words(comment.created_at) %> ago
+      </strong><br />
+      <%= h(comment.body) %>
+      </p>
+    <% end %>
+  <% end %>
+</div>
