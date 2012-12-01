@@ -1,0 +1,10 @@
+<%= div_for @spot do %>
+  <h2><%= link_to_unless_current h(@spot.title.capitalize) %></h2>
+  <%= image_tag(@spot.image_url, class: 'list_image') %>
+  <p><u>Address:</u></p><%= simple_format h(@spot.address) %>
+  <!--
+  <%= simple_format h(@spot.latitude) %>
+  <%= simple_format h(@spot.longitude) %>
+  //-->
+  <p><u>Description:</u></p><%= simple_format h(@spot.description.capitalize) %>
+<% end %>

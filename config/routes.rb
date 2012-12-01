@@ -1,5 +1,4 @@
 Ece495proj::Application.routes.draw do
-  resources :comments
 
   resources :spots do
     resources :comments
