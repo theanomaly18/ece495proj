@@ -1,0 +1,22 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+Back to Project Handrail! <%= link_to 'Click Here!', spots_path %>
+<p>
+If you are interested in making a purchase, 
+please email: siteadmin@projecthandrail.com
+</p>
+<h1>Your Pragmatic Catalog</h1>
+
+<% @products.each do |product| %>
+  <div class="entry">
+    <%= image_tag(product.image_url) %>
+    <h3><%= product.title %></h3>
+    <p><%= sanitize(product.description) %></p>
+    <div class="price_line">
+      <span class="price"><%= product.price %></span>
+    </div>
+  </div>
+  <hr>
+<% end %>

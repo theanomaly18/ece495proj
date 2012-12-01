@@ -1,5 +1,9 @@
 Ece495proj::Application.routes.draw do
 
+  get "store/index"
+
+  resources :products
+
   resources :spots do
     resources :comments
   end
