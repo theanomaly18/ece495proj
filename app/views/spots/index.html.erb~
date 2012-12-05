@@ -39,7 +39,4 @@ Hey! We have a shop! <%= link_to 'Click here!', controller: 'store', action: 'in
 <br />
 
 <%= link_to 'New Spot', new_spot_path %>
-<%= gmaps("map_options" => {"auto_adjust" => "true"},"markers" => {"data" => @json, "options" => {"list_container" => "markers_list", "randomize" => true, "max_random_distance" => 10000 } }) %>
-
-<button id="replace_markers">Refresh Markers</button>
-<ul id="markers_list">  </ul>
+<%= gmaps4rails(@json) %>
