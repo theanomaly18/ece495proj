@@ -9,7 +9,7 @@ class Spot < ActiveRecord::Base
   validates :description, presence: true
 
   def gmaps4rails_address
-      address
+      self.address
   end
 
   def gmaps4rails_infowindow
