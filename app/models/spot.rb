@@ -1,8 +1,11 @@
 class Spot < ActiveRecord::Base
+
   has_many :comments
   attr_accessible :address, :description, :image_url, :latitude, :longitude, :title, :gmaps
   
   acts_as_gmappable
+
+  receives_stars
 
   validates :title, presence: true
   validates :address, presence: true
