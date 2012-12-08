@@ -1,0 +1,42 @@
+module RailsStars
+  # The RailsStars::Helper mixes in ActionView::Base to give the stars_for
+  # method that displays stars ratings and let visitors click on to give
+  # their own rating.
+  module Helper
+    # Displays a rating widget for a star receiver
+    #
+    # @param [Object] receiver the receiver
+    def stars_form_for receiver
+      form_for([rails_stars, RailsStars::Star.new(anchor: receiver.stars_anchor!)], html: {
+               :"data-stars-average" => rounded_star_average(receiver),
+               :"data-stars-count" => receiver.star_count,
+               :id => nil}) do |f|
+        [
+          f.hidden_field(:anchor_id),
+          f.hidden_field(:rating)
+        ].join.html_safe
+      end
+    end
+
+    # Displays a rating form for a star receiver
+    #
+    # @param [Object] receiver the receiver
+    def stars_for receiver
+      "#{rounded_star_average(receiver)} / #{receiver.star_count}"
+    end
+
+    # Rounds the stars average of a receiver for display
+    #
+    # @param [Object] receiver the receiver
+    def rounded_star_average receiver
+      '%.1f' % (receiver.star_average || 0)
+    end
+
+    def display_stars receiver
+      ratings = rounded_star_average(receiver)
+      render :partial => "rateable/rating", :locals => {:stars => 5, :rating => ratings.to_i, :tooltip => "#{ratings_count} #{ratings_count == 1 ? "time" : "times"} rated, with an average value of #{stars_average}."}
+    end
+  end
+end
+
+ActionView::Base.send :include, RailsStars::Helper

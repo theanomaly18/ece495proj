@@ -8,6 +8,8 @@ Ece495proj::Application.routes.draw do
     resources :comments
   end
 
+  mount RailsStars::Engine => '/stars', as: :rails_stars  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
