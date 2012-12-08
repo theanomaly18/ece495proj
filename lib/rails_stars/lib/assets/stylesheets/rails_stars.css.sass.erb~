@@ -1,0 +1,32 @@
+.new_star
+  display: inline-block
+  position: relative
+  width: 50px
+  height: 10px
+  cursor: pointer
+  &:before,
+  &:after
+    content: ''
+    position: absolute
+    top: 0px
+    left: 0px
+    height: 100%
+  &,
+  &:before,
+  &:after
+    background:
+      image: url(<%= image_path('rails_stars/stars.png') %>)
+      repeat: repeat-x
+      position: 0px -30px
+      color: transparent
+  &:before
+    background-position: 0px -20px
+  &.selecting:after
+    background-position: 0px -20px
+  &.selecting:active:after
+    background-position: 0px 0px
+  @for $i from 0 through 5
+    &[data-stars-rating="#{$i}"]:before
+      width: 20% * $i
+    &.selecting[data-stars-selecting="#{$i}"]:after
+      width: 20% * $i
