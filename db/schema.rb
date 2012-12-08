@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121201003911) do
+ActiveRecord::Schema.define(:version => 20121207135900) do
 
   create_table "comments", :force => true do |t|
     t.integer  "spot_id"
@@ -28,6 +28,27 @@ ActiveRecord::Schema.define(:version => 20121201003911) do
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
   end
+
+  create_table "rails_stars_anchors", :force => true do |t|
+    t.string  "star_receiver_type"
+    t.integer "star_receiver_id"
+    t.float   "rating_average"
+    t.integer "rating_count"
+  end
+
+  add_index "rails_stars_anchors", ["star_receiver_id"], :name => "index_rails_stars_anchors_on_star_receiver_id"
+  add_index "rails_stars_anchors", ["star_receiver_type"], :name => "index_rails_stars_anchors_on_star_receiver_type"
+
+  create_table "rails_stars_stars", :force => true do |t|
+    t.string  "star_giver_type"
+    t.integer "star_giver_id"
+    t.integer "anchor_id"
+    t.integer "rating"
+  end
+
+  add_index "rails_stars_stars", ["anchor_id"], :name => "index_rails_stars_stars_on_anchor_id"
+  add_index "rails_stars_stars", ["star_giver_id"], :name => "index_rails_stars_stars_on_star_giver_id"
+  add_index "rails_stars_stars", ["star_giver_type"], :name => "index_rails_stars_stars_on_star_giver_type"
 
   create_table "spots", :force => true do |t|
     t.string   "title"

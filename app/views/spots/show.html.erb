@@ -3,8 +3,17 @@
 <%= link_to 'Edit', edit_spot_path(@spot) %> |
 <%= link_to 'Back', spots_path %>
 
+<h2>Difficulty Rating</h2>
+<%= stars_form_for @spot %>
+
+</br>
+
 <h2>Comments</h2>
 <!-- Add comments //-->
+
+
+
+
 <%= form_for [@spot, Comment.new] do |f| %>
   <p>
     <%= f.label :body, "New Comment" %><br />
