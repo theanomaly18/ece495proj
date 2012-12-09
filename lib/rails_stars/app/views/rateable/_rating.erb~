@@ -1,7 +1,0 @@
-<% stars ||= 5 %>
-<% tooltip ||= nil %>
-<div class="rating" style="width: <%=stars*32%>px;" <%= "title='#{tooltip}'" if tooltip %> >
-  <% stars.times do |i| %>
-    <%= image_tag (i < rating ? "rateable/star_filled.png" : "rateable/star_unfilled.png"), :style => "margin-left: #{i*32}px; z-index: #{stars - i}" %>
-  <% end %>
-</div>
