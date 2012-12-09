@@ -27,7 +27,7 @@
     <td><%= spot.longitude %></td>
     <td><%= spot.gmaps %></td>
 	//-->
-    <td><%= spot.description %></td>
+    <td><%= sanitize(spot.description) %></td>
     <td><%= display_stars spot %></td>
     <td><%= link_to 'Show', spot %></td>
     <td><%= link_to 'Edit', edit_spot_path(spot) %></td>
@@ -41,5 +41,5 @@
 <%= link_to 'New Spot', new_spot_path %>
 <%= gmaps("map_options" => {"auto_adjust" => "true"},"markers" => {"data" => @json, "options" => {"list_container" => "markers_list", "randomize" => true, "max_random_distance" => 10000 } }) %>
 
-<button id="replace_markers">Refresh Markers</button>
+<button class="btn btn-primary" type="button">Refresh Markers</button>
 <ul id="markers_list">  </ul>

@@ -6,5 +6,5 @@
   <%= simple_format h(@spot.latitude) %>
   <%= simple_format h(@spot.longitude) %>
   //-->
-  <p><u>Description:</u></p><%= simple_format h(@spot.description.capitalize) %>
+  <p><u>Description:</u></p><%= sanitize(spot.description) %>
 <% end %>
