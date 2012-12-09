@@ -8,8 +8,13 @@
   <%= yield :head %>
 </head>
 <body class='<%= controller.controller_name %>'>
+  <%= render 'layouts/header' %>
 
-<%= yield %>
-<%= yield :scripts %>
+    <div class="container">
+      <%= yield %>
+	  <%= yield :scripts %>
+	  <%= render 'layouts/footer' %>
+    </div>
+
 </body>
 </html>
