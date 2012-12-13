@@ -16,7 +16,7 @@ class Spot < ActiveRecord::Base
   end
 
   def gmaps4rails_infowindow
-      "<h1>#{title}</h1> <h4><u>Address:</u> #{address}</h4> <br></br> <th><u><b>Description:</b></u> #{description}</th> <br></br>  <img src='#{image_url}' width='150' height='150' /> "
+      "<h1>#{title}</h1> <h4><u>Address:</u> #{address}</h4> <br></br> <th><u><b>Description:</b></u> #{description}</th> <br></br> <img src='#{image_url}' width='150' height='150'> "
   end
   
   def gmaps4rails_sidebar
