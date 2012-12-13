@@ -23,4 +23,9 @@
    border:#555555 2px solid;
 }
 
+.infowindow {
 
+  width: 1200px;
+  height: 600px;
+
+}
