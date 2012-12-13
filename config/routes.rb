@@ -1,6 +1,8 @@
 Ece495proj::Application.routes.draw do
 
   get "store/index"
+  get "about" => "static_pages#about"
+  get "contact" => "static_pages#contact"
 
   resources :products
 
