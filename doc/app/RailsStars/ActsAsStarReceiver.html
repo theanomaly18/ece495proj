@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>module RailsStars::ActsAsStarReceiver - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/rails_stars/lib/rails_stars/acts_as_star_receiver.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-receive_stars">#receive_stars</a>
+    
+    <li><a href="#method-i-star_average">#star_average</a>
+    
+    <li><a href="#method-i-star_count">#star_count</a>
+    
+    <li><a href="#method-i-stars_anchor-21">#stars_anchor!</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../RailsStars.html">RailsStars</a>
+  
+    <li><a href="../RailsStars/ActsAsStarGiver.html">RailsStars::ActsAsStarGiver</a>
+  
+    <li><a href="../RailsStars/ActsAsStarGiver/ClassMethods.html">RailsStars::ActsAsStarGiver::ClassMethods</a>
+  
+    <li><a href="../RailsStars/ActsAsStarReceiver.html">RailsStars::ActsAsStarReceiver</a>
+  
+    <li><a href="../RailsStars/ActsAsStarReceiver/ClassMethods.html">RailsStars::ActsAsStarReceiver::ClassMethods</a>
+  
+    <li><a href="../RailsStars/Anchor.html">RailsStars::Anchor</a>
+  
+    <li><a href="../RailsStars/Engine.html">RailsStars::Engine</a>
+  
+    <li><a href="../RailsStars/Generators.html">RailsStars::Generators</a>
+  
+    <li><a href="../RailsStars/Generators/StarGenerator.html">RailsStars::Generators::StarGenerator</a>
+  
+    <li><a href="../RailsStars/Helper.html">RailsStars::Helper</a>
+  
+    <li><a href="../RailsStars/Star.html">RailsStars::Star</a>
+  
+    <li><a href="../RailsStars/StarsController.html">RailsStars::StarsController</a>
+  
+    <li><a href="../ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="../ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="../Comment.html">Comment</a>
+  
+    <li><a href="../CommentsController.html">CommentsController</a>
+  
+    <li><a href="../CommentsHelper.html">CommentsHelper</a>
+  
+    <li><a href="../CreateRailsStarsStars.html">CreateRailsStarsStars</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+    <li><a href="../Product.html">Product</a>
+  
+    <li><a href="../ProductsController.html">ProductsController</a>
+  
+    <li><a href="../ProductsHelper.html">ProductsHelper</a>
+  
+    <li><a href="../Spot.html">Spot</a>
+  
+    <li><a href="../SpotsController.html">SpotsController</a>
+  
+    <li><a href="../SpotsHelper.html">SpotsHelper</a>
+  
+    <li><a href="../StaticPagesController.html">StaticPagesController</a>
+  
+    <li><a href="../StaticPagesHelper.html">StaticPagesHelper</a>
+  
+    <li><a href="../StoreController.html">StoreController</a>
+  
+    <li><a href="../StoreHelper.html">StoreHelper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module RailsStars::ActsAsStarReceiver</h1>
+
+  <div id="description" class="description">
+    
+<p>Allows an ActiveRecord object to receive star ratings</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-receive_stars" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">receive_stars</span><span
+            class="method-args">(options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Receives a star rating</p>
+
+<p>@option options [Integer] rating the number of stars received @option
+options [Object] giver the object giving the rating</p>
+
+<p>@return [RailsStars::Star] the star object created</p>
+          
+
+          
+          <div class="method-source-code" id="receive_stars-source">
+            <pre><span class="ruby-comment"># File lib/rails_stars/lib/rails_stars/acts_as_star_receiver.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">receive_stars</span> <span class="ruby-identifier">options</span> = {}
+  <span class="ruby-constant">RailsStars</span><span class="ruby-operator">::</span><span class="ruby-constant">Star</span>.<span class="ruby-identifier">create</span> <span class="ruby-value">:anchor</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">stars_anchor!</span>, <span class="ruby-value">:rating</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:rating</span>], <span class="ruby-value">:star_giver</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:giver</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- receive_stars-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- receive_stars-method -->
+
+    
+      <div id="method-i-star_average" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">star_average</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Current star rating average</p>
+
+<p>@return [Numeric] star rating average</p>
+          
+
+          
+          <div class="method-source-code" id="star_average-source">
+            <pre><span class="ruby-comment"># File lib/rails_stars/lib/rails_stars/acts_as_star_receiver.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">star_average</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">stars_received</span>.<span class="ruby-identifier">loaded?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">stars_received</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-value">0.0</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">stars_received</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value">0.0</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">r</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">rating</span> } <span class="ruby-operator">/</span> <span class="ruby-identifier">stars_received</span>.<span class="ruby-identifier">length</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">stars_received</span>.<span class="ruby-identifier">average</span> <span class="ruby-value">:rating</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- star_average-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- star_average-method -->
+
+    
+      <div id="method-i-star_count" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">star_count</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Current star count</p>
+
+<p>@return [Integer] star count</p>
+          
+
+          
+          <div class="method-source-code" id="star_count-source">
+            <pre><span class="ruby-comment"># File lib/rails_stars/lib/rails_stars/acts_as_star_receiver.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">star_count</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">stars_received</span>.<span class="ruby-identifier">loaded?</span>
+    <span class="ruby-identifier">stars_received</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">stars_received</span>.<span class="ruby-identifier">count</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- star_count-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- star_count-method -->
+
+    
+      <div id="method-i-stars_anchor-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stars_anchor!</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="stars_anchor-21-source">
+            <pre><span class="ruby-comment"># File lib/rails_stars/lib/rails_stars/acts_as_star_receiver.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stars_anchor!</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">stars_anchor</span>
+    <span class="ruby-identifier">stars_anchor</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">stars_anchor</span> = <span class="ruby-identifier">create_stars_anchor</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- stars_anchor-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- stars_anchor-21-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
