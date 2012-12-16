@@ -14,8 +14,7 @@ description from the person who marked it! Viewing more information about
 the spot will also allow you to see user comments about the spot!
 
 ### Marking a Spot
-Marking a spot is very easy! Locating the 
->New Spot 
+Marking a spot is very easy! Locating the "New Spot"  
 link on our page and fill out the simple form! With all the information 
 provided from you, our site will display your spot on the map!
 
